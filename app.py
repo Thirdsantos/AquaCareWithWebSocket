@@ -40,7 +40,8 @@ def index():
     return "AQUACARE THE BRIDGE BETWEEN THE GAPS"
 
 async def handle_websocket(websocket, path):
-    await websocket.send("You're now connected to the WebSocket server")
+    await websocket.send(json.dumps({"message": "You're now connected to the WebSocket server"}))
+
 
     try:
         async for message in websocket:
